@@ -1,0 +1,125 @@
+<!-- <!DOCTYPE html>
+<html xmlns:th="www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>BookLink</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="css/style.css">
+<link rel="stylesheet" href="/bootstrap/css/bootstrap.min.css">
+<link
+	href="https://fonts.googleapis.com/css2?family=Chakra+Petch:wght@300&display=swap"
+	rel="stylesheet">
+<script src="/bootstrap-5.2.3-dist/js/bootstrap.min.js">
+ </script> -->
+ 
+ <!DOCTYPE html>
+<html xmlns:th="www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link rel="stylesheet" href="css/style.css">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet" href="/bootstrap-5.2.3-dist/css/bootstrap.min.css" type="text/css">
+<script src="/bootstrap-5.2.3-dist/js/bootstrap.min.js">
+ </script>
+
+
+ <script
+src="https://www.paypal.com/sdk/js?client-id=ARLFzTcZAJ0wU7fydbw05bBLH_tXBvojRK0ClXnDSIEo0Py1zgU9xPEZI7CVt8JCq1bINS099hBPQqHb&currency=USD&components=buttons&debug=true">
+</script>
+
+</head>
+<style>
+body {
+	font-family: 'Chakra Petch', sans-serif;
+	color: #194a8d;
+	
+}
+</style>
+</head>
+<body>
+	
+		<div th:replace="fragments/header"></div>
+		<main>
+			<div class="container-fluid ">
+				<div class="row fs-1  text-center">
+					<p>SHOPPING CART</p>
+				</div>
+				<div class="row mb-5">
+				<!-- shopping cart -->
+					<div class="col-8">
+						<div class="container1 ">
+						<!-- shopping cart items header -->
+							<div class="row m-3 border-top border-bottom fs-5">
+								<div class="col">ITEMS</div>
+								<div class="col">PRICE</div>
+								<div class="col">QUANTITY</div>
+								<div class="col">SUBTOTAL</div>
+							</div>
+						<!-- shopping cart rows -->
+							<div class="row m-3 border-bottom"
+								th:each="cartItem : ${cartItemList}">
+								<!-- Item name, description, image -->
+								<div class="col mb-3">
+									<h5 th:text="${cartItem.item.name}"></h5>
+									<p th:text="${cartItem.item.color}"></p>
+									<img width="100px" th:src="@{/uploads/items/{id}/{imageName}(id=${cartItem.item.id}, imageName=${cartItem.item.imgName})}">
+								</div>
+								<!-- Item quantity, price, links -->
+								<div class="col align-self-center" th:text="'$'+${cartItem.item.price}"></div>
+								<div class="col align-self-center">
+								
+								<!-- Update item quantity form -->
+									<form th:action="@{/cart/update/{id}(id=${cartItem.id})}" method="post">
+									<input type="number" th:value="${cartItem.quantity}" th:id="${cartItem.id}" name="qty" /> <br /> 
+									<button type="submit" class="btn btn-primary">Update Cart</button>
+									</form>
+									<!-- Update item quantity form -->
+								<!-- Remove item link -->	
+									<a th:href="@{/cart/remove/{id}(id=${cartItem.id})}" class="btn btn-danger">Remove Item</a>
+									<!-- Remove item link -->
+								</div>
+								<div class="col align-self-center" th:text="'$'+${cartItem.subtotal}"></div>
+							</div>
+						</div>
+					</div>
+					
+					<!-- Order summary -->
+					<div class="col-4">
+						<div class="container1 ">
+							<div class="row  m-3 border-top border-bottom fw-bold">
+								<div class="col text-center fs-3">ORDER SUMMARY</div>
+							</div>
+							<!-- Order summary rows -->
+							
+					<!-- COMPLETE CODE HERE -->
+			<div class="row m-3 border-bottom“ th:each=" th:each="cartItem : ${cartItemList}">
+			<div class="col fs-6">
+			<p th:text="${cartItem.item.name}+' x '+${cartItem.quantity}">
+			</div>
+			<div class="col fs-6 text-end">
+			<p th:text="${cartItem.subtotal}"></p>
+			</div>
+			</div>
+			<div class="row m-3 border-bottom fw-bold">
+			
+			</div>
+			<!-- COMPLETE CODE HERE -->
+									<div class="row  m-3 border-bottom fw-bold">
+									<div class="col fs-6">
+									<p>TOTAL</p>
+									</div>
+								<div class="col fs-6 text-end">
+									<p id="cartTotal" th:text="'$'+${total}"></p>
+								</div>
+							</div>
+							<div th:replace="fragments/paypal"></div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</main>
+		<div th:replace="fragments/footer"></div>
+</body>	
+</html>
+

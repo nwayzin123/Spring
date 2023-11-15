@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html xmlns:th="www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link rel="stylesheet" href="css/style.css">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet" href="/bootstrap-5.2.3-dist/css/bootstrap.min.css" type="text/css">
+<script src="/bootstrap-5.2.3-dist/js/bootstrap.min.js">
+ </script>
+ <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+</head>
+<body>
+<div th:replace="fragments/header"></div>
+	<div class="container-fluid text-center">
+		<div class="row">
+			<div class="col-4" th:each="item:${itemList}">
+				<div class="card-group">
+					<div class="card">
+					<!-- <img alt="item" th:src="@{/uploads/items/{id}/{imageName}(id=${item.id},imageName=${item.imgName})}"/> -->
+						<img th:src="@{/uploads/items/{id}/{imageName}(id=${item.id},imageName=${item.imgName})}" class="rounded mx-auto d-block" alt="...">
+						<div class="card-body">
+							<h4 class="card-title" th:text="${item.name}"></h4>
+							
+							<div class="star text-center">
+								<i style="color:goldenrod" class='bx bxs-star checked'></i>
+								<i style="color:goldenrod" class='bx bxs-star checked'></i>
+								<i style="color:goldenrod" class='bx bxs-star checked'></i>
+								<i class='bx bx-star'></i>
+								<i class='bx bx-star'></i>
+								<i class='bx bx-star'></i>
+							</div>
+							<h2 th:text="${item.price}+'$'"></h2>
+							<a th:href="@{/view/details/{id}(id=${item.id})}"><button type="button" class="btn btn-dark btn-outline-info">View Detail</button></a>
+								
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+		<div>
+      <a href="/view/user" class="gotopbtn"><i class='bx bxs-chevrons-up'></i></a>
+ </div>
+<div th:replace="fragments/footer"></div>
+
+
+
+
+</body>
+</html>

@@ -1,0 +1,151 @@
+
+  body{
+    
+    width: 100%;
+    height: 100%;
+    
+  }
+  .form-control{
+    width: 150px;
+  }
+  .nav-link{
+   font-size: medium;
+   text-align: center;
+  
+  }
+  .bx{
+    background-color: gold;
+    
+  }
+  .div1{
+    width: 100%;
+    height: 100px;
+    background-color:beige;
+    box-shadow: 10px 10px 2px lightblue inset;
+    
+  }
+
+  .div4 h2{
+    text-align: center;
+    margin: 40px;
+    font-style: italic;
+  }
+
+
+
+.div5 img{
+  width: 300px;
+  margin-top: auto;
+  
+}
+.card-body{
+  text-align: center;
+}
+.div6{
+  position: relative;
+}
+
+.bottomright {
+  position: absolute;
+  bottom: 50px;
+  left: 30px;
+  font-size: xx-large;
+  font-family: 'Dancing Script', cursive;
+}
+.div8{
+  position: relative;
+}
+
+
+.div7{
+  font-family: 'Courgette', cursive;
+  margin: 20px;
+}
+
+
+    .main{
+    
+    background-image: url("img/bestseller11.jpg");
+    background-repeat: no-repeat;
+    background-size: 100%;
+    background-position: center;
+    padding: 75px 0px;
+
+}
+.form-box{
+    background-color: rgba(255,255,255,0.5);
+    border-radius: 20px;
+    border: 1px solid white;
+
+}
+.form-box input{
+    border-radius: 10px;
+
+}
+.form-box select{
+    border-radius: 10px;
+}
+.register-btn{
+    background-color: aqua;
+}
+
+
+
+  .gotopbtn{
+    position: fixed;
+    width: 40px;
+    height: 40px;
+    color:green;
+    bottom: 50px;
+    right: 40px;
+    text-decoration: none;
+    text-align: center;
+    line-height: 50px;
+    color: white;
+    font-size: 50px;
+  }
+
+  body{
+    background-color: antiquewhite;
+}
+.col-md-5{
+    background-color: #1089ff;
+   
+    color: white;
+}
+.form-control{
+height: 52px;
+background: #fff;
+color: brown;
+font-size: 16px;
+border-radius: 2px;
+border: 1px solid rgba(0, 0, 0,1);
+}
+label{
+color: rgb(64, 0, 255);
+}
+h4{
+color: cyan;
+}
+
+.checked{
+  color: goldenrod ;
+}
+.login{
+  background-color: black;
+  color:#fff
+}
+.about{
+  margin: auto;
+  width: 70%;
+}
+
+.container{
+  align-items: center;
+  padding: 50px;
+  width: 500px;
+  
+  background-color: antiquewhite;
+}
+
+

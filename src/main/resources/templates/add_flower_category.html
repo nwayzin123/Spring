@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html xmlns:th="www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link rel="stylesheet" href="css/style.css">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet" href="/bootstrap-5.2.3-dist/css/bootstrap.min.css" type="text/css">
+<script src="/bootstrap-5.2.3-dist/js/bootstrap.min.js">
+ </script>
+</head>
+<body>
+
+<div th:replace="fragments/header"></div>
+<!-- <div class="container">
+</div> -->
+<div class="h1">Add Category</div>
+<form class="needs-validation" th:action="@{/category/save}" method="post" th:object="${category}" novalidate>
+ <div class="mb-3 ">
+                            <label for="name" class="form-label">Category Name</label>
+                            <input type="text" th:field="*{name}" name="" placeholder="" class=""   required="required" minlength="3" maxlength="10"/>
+                        	<div class="invalid-feedback">Please enter category name</div>
+                        	<p class="text-danger" th:if="${#fields.hasErrors('name')}" th:errors="*{name}"></p>
+                            </div>
+				<div> 
+                     <button class="btn btn-primary" type="submit">Add Category</button>
+                </div>
+
+<!-- Form Validation for java script -->
+<script type="text/javascript">
+'use strict'
+var form = document.querySelector('.needs-validation')
+form.addEventListener('submit',function(event){
+if(!form.checkValidity()){
+event.preventDefault()
+event.stopPropagation()
+}
+form.classList.add('was-validated')
+})
+</script>
+<!-- End Form Validation -->
+
+</form>
+
+
+
+</body>
+</html>

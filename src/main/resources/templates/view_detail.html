@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html xmlns:th="www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet" href="/bootstrap-5.2.3-dist/css/bootstrap.min.css" type="text/css">
+<script src="/bootstrap-5.2.3-dist/js/bootstrap.min.js">
+ </script>
+</head>
+<body>
+
+<div th:replace="fragments/header"></div>
+<main>
+<!-- <div class="container text-center">
+<div>
+	
+	<img alt="item" th:src="@{/uploads/items/{id}/{imageName}(id=${item.id},imageName=${item.imgName})}"/>
+	<h1  th:text="${item.name}"></h1>
+	<h5  th:text="${item.category.name}"></h5>
+	<h5  th:text="${item.price}+'$'"></h5>
+	<button type="button" class="btn btn-dark btn-outline-info">Add to cart</button>
+</div>
+</div> -->
+
+
+   <div class="div5 container-fluid">
+        <div class="row">
+            <div class="col-5">
+          <div class="card-group">
+            <div class="card">
+              <img alt="item" th:src="@{/uploads/items/{id}/{imageName}(id=${item.id},imageName=${item.imgName})} "/>
+                          
+            </div>
+            <div class="card">
+                <div class="card-body text-center">
+                <h1 class="card-title" th:text="${item.name}"></h1>
+                <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This card has even longer content than the first to show that equal height action.</p>
+                <h5  th:text="${item.category.name}"></h5>
+                <h5  th:text="${item.color}"></h5>
+                <h2 th:text="${item.price}+'$'"></h2>
+                <h4 th:text="'Available Quantity:'+${item.quantity}"></h4>
+                <form th:action="@{/cart/add/{itemId}(itemId=${item.id})}" method="post">
+                	<div class="mb-3 align-middle">
+                		<label for="quantity" class="form-label">Choose Quantity:</label>
+                		<input type="number" value="1" name="quantity"/>&nbsp;
+                		<button type="submit" class="btn btn-dark btn-outline-info">Add to cart</button>
+                	
+                	</div>
+                
+                </form>
+             
+              </div>
+            </div>
+        </div>
+     </div>
+     </div>
+     </div>
+
+</main>
+
+
+
+
+<div th:replace="fragments/footer"></div>
+</body>
+</html>
